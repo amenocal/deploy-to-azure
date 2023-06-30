@@ -65,6 +65,8 @@ jobs:
       # This is required to establish a related history for branches
       # after being created from the template repository.
       - name: Initialize repository
-        run: ./.github/script/initialize-repository.sh --dry-run=false
+        run: |
+           chmod +x ./.github/script/initialize-repository.sh
+           ./.github/script/initialize-repository.sh --dry-run=false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
